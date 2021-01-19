@@ -86,7 +86,7 @@ class JobRegistry(object):
         if self.f.is_connected:
             if log_text:
                 log.info( "MAIN %s" % log_text )
-            self.f.rpc(method, params, worker_name)
+            self.f1.rpc(method, params, worker_name)
         elif self.f1 and self.f1.is_connected:
             if log_text:
                 log.info( "FAILOVER1 %s" % log_text )
