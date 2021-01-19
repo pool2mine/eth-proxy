@@ -86,7 +86,10 @@ def main():
                 debug=settings.DEBUG, proxy=None,
                 event_handler=client_service.ClientMiningService)
 
-    f1 = None
+    log.warning("Trying to connect to failover Stratum pool-1 at %s:%d" % (settings.POOL_HOST_FAILOVER1, settings.POOL_PORT_FAILOVER1))
+        f1 = SocketTransportClientFactory(settings.POOL_HOST_FAILOVER1, settings.POOL_PORT_FAILOVER1,
+                debug=settings.DEBUG, proxy=None,
+                event_handler=client_service.ClientMiningService)
     f2 = None
     f3 = None
     if settings.POOL_FAILOVER_ENABLE:
