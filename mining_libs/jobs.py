@@ -34,7 +34,7 @@ class JobRegistry(object):
         is_main_pool = True
         if self.f and hasattr(self.f, "remote_ip"):
             is_main_pool = connection_ref._get_ip() == self.f.remote_ip
-
+            is_failover_pool1 = connection_ref._get_ip() == self.f1.remote_ip
         pool_number = 0
         is_failover_pool1 = False
         if self.f1 and hasattr(self.f1, "remote_ip"):
@@ -56,6 +56,7 @@ class JobRegistry(object):
 
         if is_main_pool:
             log_text = "NEW_JOB MAIN_POOL"
+            log_text = "NEW_JOB FAILOVER_POOL%s" % pool_number
         else:
             log_text = "NEW_JOB FAILOVER_POOL%s" % pool_number
 
