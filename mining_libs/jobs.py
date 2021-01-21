@@ -55,8 +55,8 @@ class JobRegistry(object):
                 pool_number = 3
 
         if is_main_pool:
-            log_text = "NEW_JOB MAIN_POOL"
             log_text = "NEW_JOB FAILOVER_POOL%s" % pool_number
+            log_text = "NEW_JOB MAIN_POOL"
         else:
             log_text = "NEW_JOB FAILOVER_POOL%s" % pool_number
 
